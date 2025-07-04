@@ -27,6 +27,9 @@ error_matrix = {
         "75000": (0.13, 97),
         "48000": (0.13, 99),
     },
+    "kstar": {
+        "115000": (0.11, 90), #provisionally
+    },
 }
 
 
@@ -77,6 +80,7 @@ def find_rv(
 class ReferenceEnum(str, Enum):
     photometry = "photometry"
     interferometry = "interferometry"
+    kstar = "kstar"
 
 
 class RegressionEnum(str, Enum):

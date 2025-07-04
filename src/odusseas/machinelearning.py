@@ -58,7 +58,7 @@ def ML(spectra: Dict[str, int], regression: str, reference: str) -> None:
         )
         for _ in range(100):
             x_train, x_test, y_train, y_test = train_test_split(
-                df_x, df_y, test_size=0.20
+                df_x, df_y, test_size=0.30
             )
 
             labels_train = y_train[["names"]]

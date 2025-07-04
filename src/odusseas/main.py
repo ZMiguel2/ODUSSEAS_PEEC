@@ -14,7 +14,7 @@ def main(
     reference: Annotated[
         ReferenceEnum,
         typer.Option(
-            help="choose the reference scale: 'photometry' for 65 stars with Teff from Casagrande08 and [Fe/H] from Neves12, or 'interferometry' for 47 stars with Teff from Khata21 and Rabus19, and [Fe/H] from Neves12",
+            help="choose the reference scale: 'photometry' for 65 stars with Teff from Casagrande08 and [Fe/H] from Neves12, or 'interferometry' for 47 stars with Teff from Khata21 and Rabus19, and [Fe/H] from Neves12, or 'kstar' for K stars only reference.",
             case_sensitive=False,
         ),
     ] = ReferenceEnum.interferometry,

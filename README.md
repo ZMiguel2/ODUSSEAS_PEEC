@@ -1,8 +1,6 @@
-Tentativa 1
-
 # ODUSSEAS (Observing Dwarfs Using Stellar Spectroscopic Energy-Absorption Shapes):
-## A Machine-Learning tool to derive Teff and [Fe/H] of M Dwarf stars
-## [UPGRADED VERSION]
+## A Machine-Learning tool to derive Teff and [Fe/H] of M Dwarf and K stars 
+## [UPGRADED VERSION - 04/07/2025]
 
 IF YOU USE THE TOOL ODUSSEAS IN YOUR RESEARCH, PLEASE CITE, 1. THE PAPER OF ITS UPGRADED VERSION (FOR THE PARAMETER DETERMINATION) AND 2. THE PAPER OF ITS ORIGINAL CREATION (FOR THE METHOD DESCRIPTION), RESPECTIVELY:
 
@@ -10,6 +8,8 @@ IF YOU USE THE TOOL ODUSSEAS IN YOUR RESEARCH, PLEASE CITE, 1. THE PAPER OF ITS 
 
 2) https://doi.org/10.1051/0004-6361/201937194
 
+
+J.Sousa: This is an upgraded version that expands the ODUSSEAS tool to make it able to derive the Teff and [Fe/H] of K stars. The new reference dataset can  be accessed by choosing "kstar" in the reference. It is still a work in progress. 
 
 ## Usage
 ```bash
@@ -23,11 +23,12 @@ $ ODUSSEAS --help
 │ *    input_spectra      TEXT  [default: None] [required]                                                                                         │
 ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 ╭─ Options ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-│ --reference                                            [photometry|interferometry]                  choose the reference scale: 'photometry' for │
+│ --reference                                            [photometry|interferometry|kstar]            choose the reference scale: 'photometry' for │
 │                                                                                                     65 stars with Teff from Casagrande08 and     │
 │                                                                                                     [Fe/H] from Neves12, or 'interferometry' for │
 │                                                                                                     47 stars with Teff from Khata21 and Rabus19, │
-│                                                                                                     and [Fe/H] from Neves12                      │
+│                                                                                                     and [Fe/H] from Neves12, or 'kstar' for K    |
+|                                                                                                     stars only reference.
 │                                                                                                     [default: interferometry]                    │
 │ --regression                                           [linear|ridge|ridgecv|multitasklasso|multit  choose the ML model. Recommended: ridge      │
 │                                                        askelasticnet ]                              [default: ridge]                             │
@@ -76,7 +77,10 @@ reference dataset 65 stars with photometric scales of Teff by Casagrande et al.
 new version of ODUSSEAS) which uses as reference dataset 47 stars with
 interferometry-based Teff by Khata et al. (2021) and Rabus et al. (2019) and
 [Fe/H] derived with the method by Neves et al. (2012) using the updated
-parallaxes from Gaia DR3. We can set the regression type using the setting
+parallaxes from Gaia DR3, or `kstar` with reference values of Teff and [Fe/H]
+from 75 K stars taken from the SWEET-Cat databade by Santos et al.(2013).
+
+We can set the regression type using the setting
 `regression`. This can be: `ridge` (recommended), `ridgecv`, `linear`,
 `multitasklasso`, `multitaskelasticnet`
 
